@@ -1,0 +1,17 @@
+Package: divvymos
+Type: Package
+Title: Data package of Divvy bike ridership in Chicago
+Version: 0.1.0
+Authors@R: c(
+    person("Christopher", "Cebra", email="ccebra@uchicago.edu", role = c("aut", "cre"))
+    )
+Maintainer: Christopher Cebra <ccebra@uchicago.edu>
+Description: Monthly cleaned Divvy bike ridership data by station from the
+    beginning of the program in June 2013 to March 2022. Data package for GIS
+    Practicum final project, Spring 2022.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/ccebra/Divvy-Data.git
+Depends: 
+    R (>= 2.10)
