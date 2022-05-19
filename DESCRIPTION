@@ -1,7 +1,7 @@
 Package: divvymos
 Type: Package
 Title: Data package of Divvy bike ridership in Chicago
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person("Christopher", "Cebra", email="ccebra@uchicago.edu", role = c("aut", "cre"))
     )
