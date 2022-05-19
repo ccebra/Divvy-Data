@@ -1,4 +1,6 @@
 library(devtools)
+library(st)
+library(sf)
 ## Import data
 Jun13 <- read.csv("2013 June.csv")
 Jul13 <- read.csv("2013 July.csv")
@@ -107,6 +109,12 @@ Jan22 <- read.csv("2022 January.csv")
 Feb22 <- read.csv("2022 February.csv")
 Mar22 <- read.csv("2022 March.csv")
 Apr22 <- read.csv("2022 April.csv")
+chitracts <- st_read("geo_export_a882c70c-1c03-45e7-9e0b-a36bf7c9b2c0.shp")
+download.file(url = "https://data.cityofchicago.org/api/geospatial/ewy2-6yfk?method=export&format=GeoJSON",
+              destfile = "chicago-boundary.geojson")
+
+chib <- st_read(dsn= "chicago-boundary.geojson") # Chicago boundary shapefile
+areas <- read.csv("areas.csv")
 
 ## Add data files to project
 use_data(Jun13,overwrite=TRUE)
@@ -216,3 +224,6 @@ use_data(Jan22,overwrite=TRUE)
 use_data(Feb22,overwrite=TRUE)
 use_data(Mar22,overwrite=TRUE)
 use_data(Apr22,overwrite=TRUE)
+use_data(chitracts,overwrite=TRUE)
+use_data(chib,overwrite=TRUE)
+use_data(areas,overwrite=TRUE)
