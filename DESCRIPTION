@@ -19,4 +19,5 @@ Depends:
 Imports: 
     sf,
     dplyr,
-    spatstat
+    spatstat,
+    tmap
