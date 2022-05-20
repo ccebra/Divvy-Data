@@ -17,7 +17,7 @@ ppp <- function(df){
 
   pstations.1b <- pstations.1[pchicago]
 
-  dd2 <- spatstat.core::density(pstations.1b,sigma=2500)
+  dd2 <- spatstat.core::density.ppp(pstations.1b,sigma=2500)
 
   dd2
 }
