@@ -3,7 +3,8 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Creating station shapefile}
 \description{Takes in station latitudes and longitudes and transforms them into
-a shapefile, removing all the stations with NA data}
+a shapefile, removing all the stations with NA data and outside of the Chicago
+city boundary}
 \usage{
 statsf(df)
 }
