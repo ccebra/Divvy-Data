@@ -13,7 +13,7 @@ ppp <- function(df){
   xypts.2 <- sf::st_transform(xypts.1,crs=3435)
 
   xypts.sp <- sf::as_Spatial(xypts.2)
-  pstations.1 <- spatstat::as.ppp.SpatialPoints(xypts.sp)
+  pstations.1 <- maptools::as.ppp.SpatialPoints(xypts.sp)
 
   pstations.1b <- pstations.1[pchicago]
 

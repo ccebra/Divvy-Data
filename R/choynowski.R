@@ -13,7 +13,7 @@ choynowski <- function(df){
 
   # Spatial join
   pip <- sf::st_join(chitracts,chistations)
-  pip1 <- pip %>% dplyr::select(station_id, geoid10)
+  pip1 <- dplyr::select(pip,c('station_id', 'geoid10'))
   pip2 <- sf::st_drop_geometry(pip1)
 
   # Clean pip2 to set up the nulls
