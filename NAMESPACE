@@ -1,3 +1,2 @@
-@importFrom dplyr %>%
-
 exportPattern("^[[:alpha:]]+")
+importFrom(dplyr,%>%)
