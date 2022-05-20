@@ -1,5 +1,5 @@
 statsf <- function(df){
-  chipts <- Jun14
+  chipts <- df
   chipts
   chipts <- chipts[is.na(chipts$station_id) == 0,]
   chipts <- chipts[is.na(chipts$lat) == 0,]
