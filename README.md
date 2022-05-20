@@ -8,3 +8,6 @@ Data package for GIScience Practicum Final Project
 **Functions**
 * totalRides which computes the total number of Divvy bike rides based on the input month dataframe
 * bufferArea which takes the total area of chib and computes the area of the joined 1/2-mile station buffers, calculating what the total percentage of chib is occupied by these buffers.
+* pppbound which converts the boundary dataframe into a spatstat point pattern object
+* ppp which creates the Gaussian kernel for the stations dataframe
+* choynowski which creates the dataframe to plot for the Choynowski maps.
