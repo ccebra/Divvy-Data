@@ -17,15 +17,15 @@ choynowski <- function(df){
   pip2 <- sf::st_drop_geometry(pip1)
 
   # Clean pip2 to set up the nulls
-  pip2 <- pip2 %>% drop_na()
+  pip2 <- pip2 dplyr::%>% drop_na()
 
   # Counts by tract
-  pointsum <- pip2 %>% group_by(geoid10) %>% summarize(count=n())
+  pointsum <- pip2 dplyr::%>% group_by(geoid10) %>% summarize(count=n())
 
   totpts <- sum(pointsum$count)
 
   # Merge point counts into tracts
-  chitracts <- chitracts %>% dplyr::left_join(pointsum,by="geoid10")
+  chitracts <- chitracts dplyr::%>% dplyr::left_join(pointsum,by="geoid10")
   chitracts$count[is.na(chitracts$count)] <- 0
 
   # Merge areas into tracts
@@ -33,7 +33,7 @@ choynowski <- function(df){
   areas$geoid10 <- as.character(areas$geoid10)
   areasum <- sum(areas$numeric)
   areas$expected = (areas$numeric / areasum) * totpts
-  chitracts <- chitracts %>% dplyr::left_join(areas,by="geoid10")
+  chitracts <- chitracts dplyr::%>% dplyr::left_join(areas,by="geoid10")
 
   # Define actual vs expected
   chitracts$choynowski = chitracts$count - chitracts$expected
