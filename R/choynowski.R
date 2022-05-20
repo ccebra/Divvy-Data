@@ -7,14 +7,14 @@ choynowski <- function(df){
   pts_sf = sf::st_as_sf(as.data.frame(chipts), coords = c('long','lat'),crs="WGS84") # Station dataframe to shapefile
 
   # Project
-  chistations <- st_transform(pts_sf, crs=32616)
+  chistations <- sf::st_transform(pts_sf, crs=32616)
   #chitracts <- divvymos::chitracts
-  chitracts <- st_transform(chitracts, crs=32616)
+  chitracts <- sf::st_transform(chitracts, crs=32616)
 
   # Spatial join
-  pip <- st_join(chitracts,chistations)
+  pip <- sf::st_join(chitracts,chistations)
   pip1 <- pip %>% dplyr::select(station_id, geoid10)
-  pip2 <- st_drop_geometry(pip1)
+  pip2 <- sf::st_drop_geometry(pip1)
 
   # Clean pip2 to set up the nulls
   pip2 <- pip2 %>% drop_na()
@@ -25,7 +25,7 @@ choynowski <- function(df){
   totpts <- sum(pointsum$count)
 
   # Merge point counts into tracts
-  chitracts <- chitracts %>% left_join(pointsum,by="geoid10")
+  chitracts <- chitracts %>% dplyr::left_join(pointsum,by="geoid10")
   chitracts$count[is.na(chitracts$count)] <- 0
 
   # Merge areas into tracts
@@ -33,7 +33,7 @@ choynowski <- function(df){
   areas$geoid10 <- as.character(areas$geoid10)
   areasum <- sum(areas$numeric)
   areas$expected = (areas$numeric / areasum) * totpts
-  chitracts <- chitracts %>% left_join(areas,by="geoid10")
+  chitracts <- chitracts %>% dplyr::left_join(areas,by="geoid10")
 
   # Define actual vs expected
   chitracts$choynowski = chitracts$count - chitracts$expected
