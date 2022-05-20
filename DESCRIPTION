@@ -15,10 +15,10 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/ccebra/Divvy-Data.git
 Depends: 
-    R (>= 2.10)
+    R (>= 2.10),
+    dplyr
 Imports: 
     sf,
-    dplyr,
     spatstat,
     tmap,
     maptools
