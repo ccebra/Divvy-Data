@@ -11,3 +11,4 @@ Data package for GIScience Practicum Final Project
 * pppbound which converts the boundary dataframe into a spatstat point pattern object
 * ppp which creates the Gaussian kernel for the stations dataframe
 * choynowski which creates the dataframe to plot for the Choynowski maps.
+* statsf which turns the station map into a shapefile
