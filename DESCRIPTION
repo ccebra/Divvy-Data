@@ -21,5 +21,4 @@ Imports:
     sf,
     spatstat,
     tmap,
-    maptools,
-    tidyverse
+    maptools
