@@ -17,7 +17,7 @@ choynowski <- function(df){
   pip2 <- sf::st_drop_geometry(pip1)
 
   # Clean pip2 to set up the nulls
-  pip2 <- pip2 %>% dplyr::drop_na()
+  pip2 <- pip2 %>% tidyverse::drop_na()
 
   # Counts by tract
   pointsum <- pip2 %>% group_by(geoid10) %>% summarize(count=n())
